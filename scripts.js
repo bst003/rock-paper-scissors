@@ -4,7 +4,7 @@
 // Compare the choices to determine the winner
 // Create a string that states both chocies and lets the user know if they won or lost.
 
-const playerSelection = prompt('Choose rock, paper or scissors');
+const playerSelection = prompt('Choose rock, paper or scissors').toLowerCase();
 const computerSelection = computerPlay();
 
 function computerPlay() {
