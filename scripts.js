@@ -20,7 +20,7 @@ for (let i = 0; i <+ 5; i++ ) {
 function playerPrompt() {
 
     let playerSelectionPrompt = prompt('Choose rock, paper or scissors');
-    
+
     // Prevent null inputs in case user hits escape
     let playerFinalSelection = ( playerSelectionPrompt === null )  ? 'paper' : playerSelectionPrompt.toLowerCase();
 
@@ -72,11 +72,7 @@ function playRound(playerSelection, computerSelection) {
         playerScore++;
     } else if( result === 'lose' ) {
         compScore++;
-    // in case of tie give both a point
-    } else {
-        playerScore++;
-        compScore++;
-    }
+    } 
 
     message = `You chose ${playerSelection}, computer chose ${computerSelection}, you ${result}!`;
 
