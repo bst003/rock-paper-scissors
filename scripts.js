@@ -4,8 +4,18 @@
 // Compare the choices to determine the winner
 // Create a string that states both chocies and lets the user know if they won or lost.
 
-const playerSelection = prompt('Choose rock, paper or scissors').toLowerCase();
-const computerSelection = computerPlay();
+let playerScore = 0;
+let compScore = 0;
+
+for (let i = 0; i <+ 5; i++ ) {
+
+    const playerSelection = prompt('Choose rock, paper or scissors').toLowerCase();
+    const computerSelection = computerPlay();
+
+    console.log(playRound(playerSelection, computerSelection));
+    console.log( `Player score: ${playerScore}, Computer Score: ${compScore}` );
+
+}
 
 function computerPlay() {
 
@@ -47,10 +57,18 @@ function playRound(playerSelection, computerSelection) {
 
     }
 
+    if (result === 'win' ){
+        playerScore++;
+    } else if( result === 'lose' ) {
+        compScore++;
+    // in case of tie give both a point
+    } else {
+        playerScore++;
+        compScore++;
+    }
+
     message = `You chose ${playerSelection}, computer chose ${computerSelection}, you ${result}!`;
 
     return message;
 
 }
-
-console.log(playRound(playerSelection, computerSelection));
