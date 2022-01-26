@@ -9,12 +9,16 @@ const computerSelection = computerPlay();
 
 function computerPlay() {
 
+    // Create array of computer choices
     let compChoices = new Array('rock', 'paper', 'scissors');
 
+    // get a random number to choose array item
     let randomNumber = Math.floor( Math.random() * compChoices.length );
 
+    // store random array item in variable
     let compChoice = compChoices[randomNumber];
 
+    //return random array item
     return compChoice;
 
 }
@@ -22,12 +26,30 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     // your code here!
-    console.log(playerSelection);
+    let result = 'lose';
+    let message;
 
-    console.log(computerSelection);
+    if ( playerSelection === 'paper' && computerSelection === 'rock'){
 
+        result = 'win';
 
-    return 'hello';
+    } else if ( playerSelection === 'rock' && computerSelection === 'scissors'){
+
+        result = 'win';
+
+    } else if ( playerSelection === 'scissors' && computerSelection === 'paper' ){
+
+        result = 'win';
+
+    } else if ( playerSelection === computerSelection ){
+
+        result = 'tie';
+
+    }
+
+    message = `You chose ${playerSelection}, computer chose ${computerSelection}, you ${result}!`;
+
+    return message;
 
 }
 
