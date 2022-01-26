@@ -9,7 +9,9 @@ let compScore = 0;
 
 for (let i = 0; i <+ 5; i++ ) {
 
-    const playerSelection = prompt('Choose rock, paper or scissors').toLowerCase();
+    let playerSelectionPrompt = prompt('Choose rock, paper or scissors');
+    let playerSelection =  ( playerSelectionPrompt === null )  ? 'paper' : playerSelectionPrompt.toLowerCase();
+
     const computerSelection = computerPlay();
 
     console.log(playRound(playerSelection, computerSelection));
