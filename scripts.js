@@ -9,10 +9,26 @@ const computerSelection = computerPlay();
 
 function computerPlay() {
 
+    let compChoices = new Array('rock', 'paper', 'scissors');
+
+    let randomNumber = Math.floor( Math.random() * compChoices.length );
+
+    let compChoice = compChoices[randomNumber];
+
+    return compChoice;
+
 }
+
 
 function playRound(playerSelection, computerSelection) {
     // your code here!
+    console.log(playerSelection);
+
+    console.log(computerSelection);
+
+
+    return 'hello';
+
 }
 
 console.log(playRound(playerSelection, computerSelection));
