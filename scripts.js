@@ -1,8 +1,3 @@
-// Gather the player's choice from a prompt onto a variable
-// Create a function to randomize the 3 computer options
-// Use the players choice and the computerPlay function in a playRound functions
-// Compare the choices to determine the winner
-// Create a string that states both chocies and lets the user know if they won or lost.
 
 let playerScore = 0;
 let compScore = 0;
