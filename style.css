@@ -1,0 +1,16 @@
+:root {
+    --base-red: #F04C34;
+    --base-gray: #231F20;
+    --base-font: 'Roboto', sans-serif;
+}
+
+html,
+body,
+html *,
+body *{
+    box-sizing: border-box;}
+
+body{
+    border-top: 10px solid var(--base-red);
+    margin: 0px;
+}

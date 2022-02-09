@@ -2,15 +2,15 @@
 let playerScore = 0;
 let compScore = 0;
 
-for (let i = 0; i <+ 5; i++ ) {
+// for (let i = 0; i <+ 5; i++ ) {
 
-    const playerSelection = playerPrompt();
-    const computerSelection = computerPlay();
+//     const playerSelection = playerPrompt();
+//     const computerSelection = computerPlay();
 
-    console.log(playRound(playerSelection, computerSelection));
-    console.log( `Player score: ${playerScore}, Computer Score: ${compScore}` );
+//     console.log(playRound(playerSelection, computerSelection));
+//     console.log( `Player score: ${playerScore}, Computer Score: ${compScore}` );
 
-}
+// }
 
 function playerPrompt() {
 
