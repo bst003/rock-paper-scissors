@@ -39,11 +39,6 @@ function playRound(e) {
     // Set game score goal
     let scoreGoal = 5;
 
-    // Return function if scoreGoal has been reached
-    if( compScore >= scoreGoal || playerScore >= scoreGoal ){
-        return;
-    }
-
     // Get computer and player selections
     let computerSelection = computerPlay();
     let playerSelection = e.currentTarget.getAttribute('data-value');
@@ -98,6 +93,13 @@ function playRound(e) {
 
     if( compScore >= scoreGoal || playerScore >= scoreGoal ){
         gameResults.innerText = gameResultMessage;
+
+        // Remove event listener as score goal has been reached
+        buttons.forEach((button) => {
+            button.removeEventListener('click', playRound);
+            button.classList.add('disabled');
+        });
+
     }
 
 }

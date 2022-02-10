@@ -1,5 +1,6 @@
 :root {
     --base-yellow: #ffbd11;
+    --base-dark-yellow: #6b4d00;
     --base-red: #F04C34;
     --base-gray: #231F20;
     --base-font: 'Roboto', sans-serif;}
@@ -75,6 +76,10 @@ p{
         width: 100%;
         font-size: 2.5rem;
         margin: 0 0 1rem;}
+    .control.disabled{
+        border-color: var(--base-dark-yellow);
+        color: var(--base-dark-yellow);
+        cursor: initial;}
 
 #scoreboard{
     display: flex;
