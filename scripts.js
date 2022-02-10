@@ -2,6 +2,8 @@
 let playerScore = 0;
 let compScore = 0;
 
+let scoreGoal = 5;
+
 const buttons = document.querySelectorAll('.control');
 const playerScoreboard = document.querySelector('#player-score');
 const computerScoreboard = document.querySelector('#computer-score');
@@ -77,7 +79,7 @@ function updateScoreBoard( roundResult ) {
 
 }
 
-function endGameDeclareWinner( playerScore, compScore, scoreGoal ) {
+function endGameDeclareWinner( playerScore, compScore ) {
 
     let gameWinner;
     let gameResultMessage;
@@ -112,9 +114,6 @@ function endGameDeclareWinner( playerScore, compScore, scoreGoal ) {
 
 function playRound(e) {
 
-    // Set game score goal
-    let scoreGoal = 5;
-
     // Get computer and player selections
     let computerSelection = computerPlay();
     let playerSelection = e.currentTarget.getAttribute('data-value');
@@ -133,7 +132,7 @@ function playRound(e) {
     roundResults.innerText = roundResultMessage;
 
     // Determine if game is over, and if so who is winner
-    endGameDeclareWinner( playerScore, compScore, scoreGoal )
+    endGameDeclareWinner( playerScore, compScore );
 
 }
 
