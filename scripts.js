@@ -2,26 +2,17 @@
 let playerScore = 0;
 let compScore = 0;
 
-// for (let i = 0; i <+ 5; i++ ) {
+const buttons = document.querySelectorAll('.control');
+const playerScoreboard = document.querySelector('#player-score');
+const computerScoreboard = document.querySelector('#computer-score');
+const roundResults = document.querySelector('#round-results');
 
-//     const playerSelection = playerPrompt();
-//     const computerSelection = computerPlay();
+buttons.forEach((button) => {
 
-//     console.log(playRound(playerSelection, computerSelection));
-//     console.log( `Player score: ${playerScore}, Computer Score: ${compScore}` );
+    button.addEventListener('click', playRound);
 
-// }
+});
 
-function playerPrompt() {
-
-    let playerSelectionPrompt = prompt('Choose rock, paper or scissors');
-
-    // Prevent null inputs in case user hits escape
-    let playerFinalSelection = ( playerSelectionPrompt === null )  ? 'paper' : playerSelectionPrompt.toLowerCase();
-
-    return playerFinalSelection;
-
-}
 
 function computerPlay() {
 
@@ -40,8 +31,10 @@ function computerPlay() {
 }
 
 
-function playRound(playerSelection, computerSelection) {
+function playRound(e) {
     // your code here!
+    let computerSelection = computerPlay();
+    let playerSelection = e.currentTarget.getAttribute('data-value');
     let result = 'lose';
     let message;
 
@@ -65,12 +58,13 @@ function playRound(playerSelection, computerSelection) {
 
     if (result === 'win' ){
         playerScore++;
+        playerScoreboard.innerText = `Player: ${playerScore}`;
     } else if( result === 'lose' ) {
         compScore++;
+        computerScoreboard.innerText = `Computer: ${compScore}`;
     } 
 
     message = `You chose ${playerSelection}, computer chose ${computerSelection}, you ${result}!`;
-
-    return message;
+    roundResults.innerText = message;
 
 }
