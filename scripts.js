@@ -7,16 +7,43 @@ const playerScoreboard = document.querySelector('#player-score');
 const computerScoreboard = document.querySelector('#computer-score');
 const roundResults = document.querySelector('#round-results');
 const gameResults = document.querySelector('#game-results');
+const resetButton = document.querySelector('#reset-game');
+
+resetButton.addEventListener('click', resetGame);
 
 
 // Loop through each button and add event listener
 buttons.forEach((button) => {
-
-    button.addEventListener('click', playRound);
-
+    button.addEventListener('click', playRound)
 });
 
+function resetGame() {
 
+    // Set scores back to 0
+    playerScore = 0;
+    compScore = 0;
+
+    // Add event Listener back to buttons
+    // Remove disabled class
+    buttons.forEach((button) => {
+        button.addEventListener('click', playRound);
+        button.classList.remove('disabled');
+    });
+
+    // Update score messages
+    playerScoreboard.innerText = `Player: ${playerScore}`;
+    computerScoreboard.innerText = `Computer: ${compScore}`;
+
+    // Set results messages to be blank
+    roundResults.innerText = '';
+    gameResults.innerText = '';
+
+    // Hide reset buttons
+    resetButton.style.display = "none";
+
+}
+
+// Randomly return choice for computer
 function computerPlay() {
 
     // Create array of computer choices
@@ -45,7 +72,7 @@ function playRound(e) {
 
     // set default round result game winnder
     let result = 'lose';
-    let gameWinner = 'player';
+    let gameWinner = 'Player';
 
     // Prep message variables for later use
     let roundResultMessage;
@@ -93,6 +120,8 @@ function playRound(e) {
 
     if( compScore >= scoreGoal || playerScore >= scoreGoal ){
         gameResults.innerText = gameResultMessage;
+
+        resetButton.style.display = "block";
 
         // Remove event listener as score goal has been reached
         buttons.forEach((button) => {
