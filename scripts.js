@@ -6,7 +6,10 @@ const buttons = document.querySelectorAll('.control');
 const playerScoreboard = document.querySelector('#player-score');
 const computerScoreboard = document.querySelector('#computer-score');
 const roundResults = document.querySelector('#round-results');
+const gameResults = document.querySelector('#game-results');
 
+
+// Loop through each button and add event listener
 buttons.forEach((button) => {
 
     button.addEventListener('click', playRound);
@@ -32,11 +35,27 @@ function computerPlay() {
 
 
 function playRound(e) {
-    // your code here!
+
+    // Set game score goal
+    let scoreGoal = 5;
+
+    // Return function if scoreGoal has been reached
+    if( compScore >= scoreGoal || playerScore >= scoreGoal ){
+        return;
+    }
+
+    // Get computer and player selections
     let computerSelection = computerPlay();
     let playerSelection = e.currentTarget.getAttribute('data-value');
+
+    // set default round result game winnder
     let result = 'lose';
-    let message;
+    let gameWinner = 'player';
+
+    // Prep message variables for later use
+    let roundResultMessage;
+    let gameResultMessage;
+
 
     if ( playerSelection === 'paper' && computerSelection === 'rock'){
 
@@ -56,6 +75,7 @@ function playRound(e) {
 
     }
 
+    // Increase the score variables and update the scoreboard
     if (result === 'win' ){
         playerScore++;
         playerScoreboard.innerText = `Player: ${playerScore}`;
@@ -64,7 +84,20 @@ function playRound(e) {
         computerScoreboard.innerText = `Computer: ${compScore}`;
     } 
 
-    message = `You chose ${playerSelection}, computer chose ${computerSelection}, you ${result}!`;
-    roundResults.innerText = message;
+    // Update the round results message
+    roundResultMessage = `You chose ${playerSelection}, computer chose ${computerSelection}, you ${result}!`;
+    roundResults.innerText = roundResultMessage;
+
+    // update gameWinner if computer reaches scoreGoal
+    if( compScore === scoreGoal ) {
+        gameWinner = 'Computer';
+    }
+
+    // Set and display gameResultMessage
+    gameResultMessage = `The score limit has been reached, ${gameWinner} is the winner`;
+
+    if( compScore >= scoreGoal || playerScore >= scoreGoal ){
+        gameResults.innerText = gameResultMessage;
+    }
 
 }
