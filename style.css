@@ -53,6 +53,10 @@ p{
     column-gap: 2rem;
     max-width: 600px;
     width: 100%;}
+    @media all and (max-width: 48rem) {
+        .buttons-contain{
+            column-gap: .75rem;}
+    }
     .buttons-contain.center{
         justify-content: center;}
 
@@ -70,6 +74,11 @@ p{
     font-weight: 700;
     cursor: pointer;
     transition: all .2s;}
+    @media all and (max-width: 48rem) {
+        .control{
+            padding: 1rem .5rem;
+            font-size: 1rem;}
+    }
     .control:hover{
         border-color: var(--base-red);
         color: var(--base-red);}
